@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <form action="/mailinglist.php" method="POST">
+      <fieldset>
+        <legend>Join Our email list</legend>
+        <p>Get news about the band such as tour dates and special MP3 releases sent to your own in-box.</p>
+        <ol>
+          <li>
+            <label for="firstName">Name:</label>
+            <input type="text" id="firstName" name="firstName">
+          </li>
+          <li>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+          </li>
+        </ol>
+        <input type="submit" value="submit">
+      </fieldset>
+      <progress max="100" id="fave">0</progress>
+      <meter min="0" max="100" id="meter" value="60" name="volume">60%</meter>
+    </form>
+    <form onsubmit="return false" oninput="o.value = a.valueAsNumber +b.valueAsNumber">
+  <input name=a type=number step=any> + <input name=b type=number step=any> = <output name=o for="a b"></output>
+  <div class="select" role="listbox">
+    <ul class="optionlist">
+    <li class="option" role="option">Red</li>
+    <li class="option" role="option">Yellow</li>
+    </ul>
+    </div>
+</form>
+    <script>
+      var meter = document.getElementById("meter");
+      meter.setAttribute("value", 20);
+      setInterval(function(){
+        var value = parseInt(meter.getAttribute("value"));
+        console.log(value+1>100);
+        if((value+1)>100){
+          value = 0;
+        }
+        meter.setAttribute("value", value+1);
+      },200
+      )
+    </script>
+  </body>
+</html>
